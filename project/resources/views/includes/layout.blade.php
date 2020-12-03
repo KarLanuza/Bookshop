@@ -10,7 +10,7 @@
         @include('includes.header')
     </header>
 
-    <div id="main" class="row">
+    <div id="main" class="row" style="margin-top:50px;">
 
             @yield('content')
 

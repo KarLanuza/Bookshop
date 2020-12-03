@@ -3,7 +3,7 @@
 
 
 
-<div class="content-wrapper">
+<div class="container-fluid">
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
