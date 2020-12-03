@@ -1,0 +1,1 @@
+<div class="text-center">© Copyright 2020</div>
