@@ -12,6 +12,7 @@
   </section>
   <!-- Main content -->
   <section class="content">
+
     <div class="row">
       <div class="col-xs-12">
         <div class="box">
@@ -25,6 +26,7 @@
                   <label for="inputTitle">Last Name</label>
                   <input type="text" class="form-control" id="lastname" name="lastname" value="{{ $authors->lastname }}" placeholder="Last Name">
                 </div>
+
                 <div class="form-group">
                   <label for="inputTitle">Initials</label>
                   <input type="text" class="form-control" id="initials" name="initials" value="{{ $authors->initials }}" placeholder="Initials">
@@ -33,6 +35,7 @@
                   <label for="inputTitle">Age</label>
                   <input type="text" class="form-control" id="age" name="age" value="{{ $authors->age }}" placeholder="Age">
                 </div>
+
                 <div class="form-group">
                   <label for="inputTitle">Country</label>
                   <input type="text" class="form-control" id="country" name="country" value="{{ $authors->country }}" placeholder="Country">
@@ -44,16 +47,19 @@
                   <button type="submit" class="btn btn-primary btn-flat" name="add"><i class="fa fa-save"></i> Save</button>
                 </div>
               </form>
+
               <div class="form-group">
-                <label for="inputISBN">List of Books Published</label>
+              <section class="content-header">
+                  <h3>
+                    Books Published
+                  </h3>
+                </section>
                 <ul>
                   @foreach($booksOfAuthor as $booksOfAuthors)
-                  <li>{{ $booksOfAuthors->title }}</li>
+                    <li>{{ $booksOfAuthors->title }}</li>
                   @endforeach
                 </ul>
-                
               </div>
-              
             </div>
           </div>
         </div>
