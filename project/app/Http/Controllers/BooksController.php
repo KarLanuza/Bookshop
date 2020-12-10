@@ -18,14 +18,10 @@ class BooksController extends Controller
         ]);
     }
 
-
-
     public function show($id){
         
         $books = Book::find($id);
         $authors = Author::all();
-
-        
 
         return view('books.show', [
             'books' => $books,

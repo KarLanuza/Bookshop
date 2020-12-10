@@ -18,36 +18,34 @@
           <div class="panel-body with-border">
             <button href="#addnewBook" data-toggle="modal" class="btn btn-dark btn-outline-secondary btn-sm btn-flat"><i class="fa fa-plus"></i> New</button>
           </div>
-          <div class="box-body">
-            <table id="example1" class="table table-hover table-bordered">
-              <thead class="table-light">
-                <th>ISBN #</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th>No of Pages</th>
+          <div class="tableFixHead">
+            <table class=" table-hover table-bordered">
+              <thead>
+                <tr>
+                  <th class="text-center">ISBN #</th>
+                  <th class="text-center">Title</th>
+                  <th class="text-center">Author</th>
+                  <th class="text-center">Number of Pages</th>
+                </tr>
               </thead>
               <tbody>
-              @foreach($books as $book)
-              <tr>
-                  <td>{{ $book->isbn }}</td>
-                  <td><a href="/books/{{$book->id}}">{{ $book->title }}</a></td>
-                  <td>{{ $book->authors->initials }}</td>
-                  <td>{{ $book->pages }}</td>
-              </tr>
-              @endforeach
+                @foreach($books as $book)
+                    <tr>
+                        <td>{{ $book->isbn }}</td>
+                        <td><a href="/books/{{$book->id}}">{{ $book->title }}</a></td>
+                        <td>{{ $book->authors->initials }}</td>
+                        <td>{{ $book->pages }}</td>
+                    </tr>
+                  @endforeach
               </tbody>
             </table>
-
-
-            {{ $books->links() }}
-
-
           </div>
         </div>
       </div>
     </div>
     @include('books.modals')
-
     </section>
+    {{ $books->links('pagination::bootstrap-4') }}
 </div>
+
 @endsection
