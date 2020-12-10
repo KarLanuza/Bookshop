@@ -1,8 +1,6 @@
 @extends('includes.layout')
 @section('content')
 
-
-
 <div class="content">
     <!-- Main content -->
     <section class="content">
@@ -12,8 +10,42 @@
             <div class="box-header with-border">
                 <button href="#addNewAuthor" data-toggle="modal" class="btn btn-dark btn-outline-secondary btn-sm btn-flat"><i class="fa fa-plus"></i> New</button>
             </div>
+            <div class="row">
+              <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-aqua">
+                  <div class="inner">
+                    <p>Total number of Authors</p>
+                    <h3>{{ $allAuthors }}</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-green">
+                  <div class="inner">
+                    <p>Average Age of Authors</p>
+                    <h3>{{ $averageAge }}</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-yellow">
+                  <div class="inner">
+                    <p>Books per Author</p>
+                    <h3>{{$booksPerAuthor}}</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-red">
+                  <div class="inner">
+                    <p>Countries of Origin</p>
+                    <h3>{{ $totalCountries }}</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div class="tableFixHead">
-              <table class=" table-hover table-bordered">
+              <table class="table-hover table-bordered">
                 <thead>
                   <tr>
                     <th>#</th>
@@ -34,8 +66,6 @@
                 </tbody>
               </table>
             </div>
-
-            
           </div>
         </div>
       </div>
