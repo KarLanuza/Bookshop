@@ -35,10 +35,10 @@
                 <table class="table table-hover table-striped table-bordered">
                   <thead class="thead-light">
                     <tr>
-                      <th scope="col">ISBN #</th>
-                      <th scope="col">Title</th>
-                      <th scope="col">Author</th>
-                      <th scope="col">Number of Pages</th>
+                      <th scope="col" class="text-center">ISBN #</th>
+                      <th scope="col" class="text-center">Title</th>
+                      <th scope="col" class="text-center">Author</th>
+                      <th scope="col" class="text-center">Number of Pages</th>
                     </tr>
                   </thead>
                   <tbody>
