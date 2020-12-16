@@ -4,12 +4,8 @@
     @include('includes.head')
 </head>
 <body>
+@include('includes.header')
 <div class="container">
-
-    <header class="row">
-        @include('includes.header')
-    </header>
-
     <div id="main" class="row" style="margin-top:50px;">
 
             @yield('content')
