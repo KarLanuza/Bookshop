@@ -47,14 +47,7 @@ class BooksController extends Controller
 
     public function update($id){
 
-        $books = Book::find($id);
-
-        $books->isbn = request('isbn');
-        $books->title = request('title');
-        $books->author_id = request('authors_id');
-        $books->pages = request('pages');
-
-        $books->save();
+        Book::findOrFail($id)->update($this->validateNewBook());
         return redirect('/books')->with('success', 'Book has been updated successfully');
     }
 }
