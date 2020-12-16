@@ -30,16 +30,18 @@ class BooksController extends Controller
         ]);
     }
 
+    public function validateNewBook()
+    {
+        return request()->validate([
+            'isbn' => 'required|min:7',
+            'title' => 'required|min:3',
+            'author_id' => 'required|min:1',
+            'pages' => 'required|min:1',
+        ]);
+    }
+
     public function store(){
-        $books = new Book();
-
-        $books->isbn = request('isbn');
-        $books->title = request('title');
-        $books->authors_id = request('authors_id');
-        $books->pages = request('pages');
-
-        $books->save();
-
+        Book::create($this->validateNewBook());
         return redirect('/books')->with('success', 'Book has been added successfully');
     }
 
@@ -49,7 +51,7 @@ class BooksController extends Controller
 
         $books->isbn = request('isbn');
         $books->title = request('title');
-        $books->authors_id = request('authors_id');
+        $books->author_id = request('authors_id');
         $books->pages = request('pages');
 
         $books->save();
