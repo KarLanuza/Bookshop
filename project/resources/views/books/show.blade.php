@@ -38,7 +38,7 @@
                     <option>--Select Author--</option>
                     @foreach($authors as $author)
                     <option value="{{ $author->id }}" 
-                      @if($author->id === $books->authors->id)
+                      @if($author->id === $books->author->id)
                       selected
                       @endif
                       >{{ $author->initials }} </option>
