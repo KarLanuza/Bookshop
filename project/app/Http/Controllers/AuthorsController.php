@@ -11,35 +11,24 @@ class AuthorsController extends Controller
     public function index()
     {
         $author = Author::orderBy('initials', 'ASC')->paginate(50);
-        $authors = Author::all();
-        $books = Book::all();
-
         $averageAge = Author::avg('age');
-        $countries = Author::all('country')->unique('country');
-        $totalCountries = count($countries);
-
-        $allAuthors = count($authors);
-        $allBooks = count($books);
-
-        $booksPerAuthor = $allBooks/$allAuthors;
 
         return view('authors.index', [
-            'allAuthors' => $allAuthors,
             'author' => $author,
             'averageAge' => $averageAge,
-            'booksPerAuthor' => $booksPerAuthor,
-            'totalCountries' => $totalCountries,
+            'booksPerAuthor' => Book::count() / Author::count(),
+            'totalCountries' => Author::all()->unique('country')->count(),
         ]);
     }
     
     public function show($id)
     {    
         $authors = Author::find($id);
-        $booksOfAuthor =  Book::where('authors_id', $id)->get();
+        $booksOfAuthor =  Book::where('author_id', $id)->get();
         
         return view('authors.show', [
             'authors' => $authors,
-            'booksOfAuthor' => $booksOfAuthor,          
+            'booksOfAuthor' => $booksOfAuthor,
         ]);
     }
 
