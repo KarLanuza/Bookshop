@@ -15,7 +15,7 @@
                 <div class="small-box bg-aqua">
                   <div class="inner">
                     <p>Total number of Authors</p>
-                    <h3>{{ $allAuthors }}</h3>
+                    <h3>{{ $author->total() }}</h3>
                   </div>
                 </div>
               </div>
@@ -23,7 +23,7 @@
                 <div class="small-box bg-green">
                   <div class="inner">
                     <p>Average Age of Authors</p>
-                    <h3>{{ $averageAge }}</h3>
+                    <h3>{{ ceil($averageAge) }}</h3>
                   </div>
                 </div>
               </div>
@@ -49,7 +49,7 @@
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>Initials</th>
+                    <th>Name</th>
                     <th>Age</th>
                     <th>Origin of Country</th>
                   </tr>
@@ -58,7 +58,7 @@
                   @foreach($author as $auth)
                     <tr>
                       <td>{{ $auth->id }}</td>
-                        <td><a href="/authors/{{ $auth->id }}">{{ $auth->initials }}</a></td>
+                        <td><a href="/authors/{{ $auth->id }}">{{ $auth->initials }} {{ $auth->lastname }}</a></td>
                         <td>{{ $auth->age }}</td>
                         <td>{{ $auth->country }}</td>
                     </tr>
