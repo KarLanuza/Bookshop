@@ -1,1 +1,1 @@
-<div class="text-center bg-light">&copy; Bookshop Project 2020</div>
+<div class="text-center">&copy; Bookshop Project 2020</div>
