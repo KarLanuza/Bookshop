@@ -29,14 +29,14 @@
               </div>
               <div class="form-group">
                 <label>Author</label>
-                <select class="form-control"  name="authors_id" id="authors_id">
-                  <option>--Select Author--</option>
+                <select class="form-control"  name="author_id" id="author_id">
+                  <option disabled>--Select Author--</option>
                   @foreach($authors as $author)
                   <option value="{{ $author->id }}" 
                     @if($author->id === $books->author->id)
                     selected
                     @endif
-                    >{{ $author->initials }} </option>
+                    >{{ $author->initials }} {{ $author->lastname }}</option>
                     @endforeach
                 </select>
                 @error('author_id')
