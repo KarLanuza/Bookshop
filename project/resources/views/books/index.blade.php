@@ -29,7 +29,7 @@
           <div class="col-12">
             <div class="box">
               <div class="panel-body with-border">
-                <button href="#addnewBook" data-toggle="modal" class="btn btn-light btn-outline-secondary btn-sm btn-flat"><i class="fa fa-plus"></i> New</button>
+                <a class="btn btn-light btn-outline-secondary btn-sm btn-flat" role="button" href="/books/add">New Book</a>
               </div>
               <div class="center">
                 <table class="table table-hover table-striped table-bordered">
@@ -56,7 +56,6 @@
             </div>
           </div>
         </div>
-        @include('books.modals')
       </section>
     </div>
     {{ $books->links('pagination::bootstrap-4') }}

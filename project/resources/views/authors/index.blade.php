@@ -2,12 +2,23 @@
 @section('content')
 
 <div class="content">
-    <!-- Main content -->
-    <section class="content">
-    
-    
-
-    <div class="col-md-12 offset-md-2">
+  <section class="content">
+    <div class="col-md-12 offset-md-3">
+      @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <p>{{ $message }}</p>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      @elseif ($errors->any())
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <p>{{ $errors }}</p>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      @endif
       <div class="d-flex justify-content-center">
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-aqua">
@@ -21,7 +32,7 @@
           <div class="small-box bg-green">
             <div class="inner">
               <p>Average Age of Authors</p>
-              <h3>{{ ceil($averageAge) }}</h3>
+              <h3>{{ round($averageAge) }}</h3>
             </div>
           </div>
         </div>
@@ -29,7 +40,7 @@
           <div class="small-box bg-yellow">
             <div class="inner">
               <p>Books per Author</p>
-              <h3>{{$booksPerAuthor}}</h3>
+              <h3>{{ round($booksPerAuthor) }}</h3>
             </div>
           </div>
         </div>
@@ -44,27 +55,9 @@
       </div>
       <div class="row">
         <div class="col-12">
-          @if ($message = Session::get('success'))
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <p>{{ $message }}</p>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          @elseif ($errors->any())
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <p>{{ $errors }}</p>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          @endif
-        </div>
-
-        <div class="col-12">
           <div class="box">
             <div class="box-header with-border">
-              <button href="#addNewAuthor" data-toggle="modal" class="btn btn-light btn-outline-secondary btn-sm btn-flat"><i class="fa fa-plus"></i> New</button>
+                <a class="btn btn-light btn-outline-secondary btn-sm btn-flat" role="button" href="/authors/add">New Author</a>
             </div>
             <div class="center">
               <table class="table table-hover table-striped table-bordered">
