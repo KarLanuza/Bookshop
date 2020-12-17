@@ -32,29 +32,30 @@ class AuthorsController extends Controller
         ]);
     }
 
+    public function validateAuthor()
+    {
+        return request()->validate([
+            'lastname' => 'required|min:2',
+            'initials' => 'required|min:2',
+            'age' => 'required|max:3',
+            'country' => 'required|min:2',
+        ]);
+    }
+
+    public function add()
+    {
+        return view('authors.add');
+    }
+
     public function update($id)
     {
-        $author = Author::find($id);
-
-        $author->lastname = request('lastname');
-        $author->initials = request('initials');
-        $author->age = request('age');
-        $author->country = request('country');
-        $author->save();
-
+        Author::findOrFail($id)->update($this->validateAuthor());
         return redirect('/authors')->with('success', 'Author has been updated successfully');
     }
     
     public function store()
     {
-        $author = new Author();
-
-        $author->lastname = request('lastname');
-        $author->initials = request('initials');
-        $author->age = request('age');
-        $author->country = request('country');
-        $author->save();
-
+        $author = Author::create($this->validateAuthor());
         return redirect('/authors')->with('success', 'Author has been added successfully');
     }
 }

@@ -40,6 +40,14 @@ class BooksController extends Controller
         ]);
     }
 
+    public function add()
+    {
+        $authors = Author::all();
+        return view('books.add',[
+            'author' => $authors,
+        ]);
+    }
+
     public function store(){
         Book::create($this->validateNewBook());
         return redirect('/books')->with('success', 'Book has been added successfully');
