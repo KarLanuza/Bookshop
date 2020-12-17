@@ -18,11 +18,13 @@ Route::get('/', function () {
 });
 
 Route::get('/books', 'App\Http\Controllers\BooksController@index');
+Route::get('/books/add', 'App\Http\Controllers\BooksController@add');
+Route::post('/books/add', 'App\Http\Controllers\BooksController@store');
 Route::get('/books/{id}', 'App\Http\Controllers\BooksController@show');
-Route::post('/books', 'App\Http\Controllers\BooksController@store');
 Route::POST('/books/{id}', 'App\Http\Controllers\BooksController@update');
 
 Route::get('/authors', 'App\Http\Controllers\AuthorsController@index');
+Route::get('/authors/add', 'App\Http\Controllers\AuthorsController@add');
+Route::post('/authors/add', 'App\Http\Controllers\AuthorsController@store');
 Route::get('/authors/{id}', 'App\Http\Controllers\AuthorsController@show');
-Route::post('/authors', 'App\Http\Controllers\AuthorsController@store');
 Route::POST('/authors/{id}', 'App\Http\Controllers\AuthorsController@update');
